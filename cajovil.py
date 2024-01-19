@@ -24,18 +24,15 @@ arquivos_path = "Arquivos"
 
 
 def verificar_conexao():
-    # Obter os valores dos inputs
     server = input_server.get()
     user = input_user.get()
     password = input_password.get()
     base = input_base.get()
     port = input_port.get()
 
-    # Construir a string de conexão usando Oracle Easy Connect
     string_conexao = f'{user}/{password}@{server}:{port}/{base}'
 
     try:
-        # Conectar ao banco de dados Oracle
         conn = cx_Oracle.connect(string_conexao)
         conn.close()
         messagebox.showinfo("Conexão", "Conexão bem sucedida!")
