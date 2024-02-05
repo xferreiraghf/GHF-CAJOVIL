@@ -10,7 +10,6 @@ import cx_Oracle
 from cryptography.fernet import Fernet
 
 caminho_instant_client = r'C:\Users\b11015\AppData\Local\Temp\2\instantclient_12_2'
-
 os.environ['PATH'] = f'{caminho_instant_client};{os.environ["PATH"]}'
 
 root = ctk.CTk()
@@ -265,7 +264,7 @@ def executar_importacao():
                                 existing_record = cursor.fetchone()
 
                                 if existing_record:
-                                    cursor.execute("UPDATE VOL_FUNC_CAJOVIL SET IND_SITUACAO=:2, NOM_FUNC=:3, NRO_CNPJ=:4, IND_PONTUALIDADE=:5, IND_BLOQUEIO=:6, DSC_ENDERECO=:7, IND_UF=:8, IND_PF_PJ=:9, NRO_RG=:10, NUMCPF=:11, NOM_CIDADE=:12, NRO_CEP=:13, NRO_TELEFONE=:14, DESCONHECIDO=:15, IND_SEM_CREDITO=:16, DAT_NASCIMENTO=:17, DAT_ADMISSAO=:18, NRO_DDD=:19, IND_SEXO=:20, DSC_EMAIL=:21, NOM_BAIRRO=:22, VLR_LIMITE_CRED=:23, DSC_LOGRADOURO=:24, NOM_PAIS=:25, NRO_LOGRADOURO=:26, IND_ESTADO_CIVIL=:27 WHERE COD_FUNC=:1", 
+                                    cursor.execute("UPDATE VOL_FUNC_CAJOVIL SET COD_FUNC=:1, IND_SITUACAO=:2, NOM_FUNC=:3, NRO_CNPJ=:4, IND_PONTUALIDADE=:5, IND_BLOQUEIO=:6, DSC_ENDERECO=:7, IND_UF=:8, IND_PF_PJ=:9, NRO_RG=:10, NUMCPF=:11, NOM_CIDADE=:12, NRO_CEP=:13, NRO_TELEFONE=:14, DESCONHECIDO=:15, IND_SEM_CREDITO=:16, DAT_NASCIMENTO=:17, DAT_ADMISSAO=:18, NRO_DDD=:19, IND_SEXO=:20, DSC_EMAIL=:21, NOM_BAIRRO=:22, VLR_LIMITE_CRED=:23, DSC_LOGRADOURO=:24, NOM_PAIS=:25, NRO_LOGRADOURO=:26, IND_ESTADO_CIVIL=:27 WHERE COD_FUNC=:1", 
                                     (cod_func, ind_situacao, nom_func, nro_cnpj, ind_pontualidade, ind_bloqueio, dsc_endereco, ind_uf, ind_pf_pj, nro_rg, numcpf, nom_cidade, nro_cep, nro_telefone, desconhecido, ind_sem_credito, dat_nascimento, dat_admissao, nro_ddd, ind_sexo, dsc_email, nom_bairro, vlr_limite_cred, dsc_logradouro, nom_pais, nro_logradouro, ind_estado_civil))
                                 else:
                                     cursor.execute("INSERT INTO VOL_FUNC_CAJOVIL (COD_FUNC, IND_SITUACAO, NOM_FUNC, NRO_CNPJ, IND_PONTUALIDADE, IND_BLOQUEIO, DSC_ENDERECO, IND_UF, IND_PF_PJ, NRO_RG, NUMCPF, NOM_CIDADE, NRO_CEP, NRO_TELEFONE, DESCONHECIDO, IND_SEM_CREDITO, DAT_NASCIMENTO, DAT_ADMISSAO, NRO_DDD, IND_SEXO, DSC_EMAIL, NOM_BAIRRO, VLR_LIMITE_CRED, DSC_LOGRADOURO, NOM_PAIS, NRO_LOGRADOURO, IND_ESTADO_CIVIL) VALUES (:1, :2, :3, :4, :5, :6, :7, :8, :9, :10, :11, :12, :13, :14, :15, :16, :17, :18, :19, :20, :21, :22, :23, :24, :25, :26, :27)",
